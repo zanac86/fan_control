@@ -8,7 +8,7 @@ pwm выход на pin 3
 */
 
 
-#define BUTTON_PIN 2
+#define BUTTON_PIN 6
 GButton touch(BUTTON_PIN, LOW_PULL, NORM_OPEN);
 
 // 100% - 0, 50% - 1, ramp - 2
@@ -20,6 +20,7 @@ unsigned int ramp_x = 0;
 
 void setup() {
   Serial.begin(115200);
+  delay(1000);
   // generate 25kHz PWM pulse rate on Pin 3
   const int PWMPin = 3;
   pinMode(PWMPin, OUTPUT);   // OCR2B sets duty cycle
@@ -65,7 +66,7 @@ void loop() {
       x = 79;
       break;
     case 1:
-      x = 50;
+      x = 30;
       break;
     case 2:
       x = ramp_x;
